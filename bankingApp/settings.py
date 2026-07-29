@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "customers",
-    #"cards",
-    #"accounts",
-    #"transactions"
+    "cards",
+    "accounts",
+    "transactions",
+
+    "rest_framework",
+    "api.apps.ApiConfig",
 ]
 
 
@@ -59,7 +62,7 @@ ROOT_URLCONF = "bankingApp.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
