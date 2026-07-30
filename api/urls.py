@@ -1,8 +1,10 @@
 
 from django.urls import path
-from .views import TransactionAPIView
+from .views import TransactionAPIView,AccountAPIView,CardAPIView
 
 urlpatterns = [
-    path("", TransactionAPIView.as_view()),
+    path("transactions/", TransactionAPIView.as_view()),
+    path("accounts/", AccountAPIView.as_view()),
+    path("cards/", CardAPIView.as_view()),
 
 ]

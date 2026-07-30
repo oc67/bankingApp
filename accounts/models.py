@@ -2,12 +2,16 @@ from django.db import models
 
 from django.contrib.auth.models import AbstractUser
 
+from customers.models import Customers
+
 # Create your models here.
 
 class Accounts(models.Model):
-    AccountID=models.BigIntegerField(primary_key=True,null=False,blank=False)
+    AccountID=models.AutoField(primary_key=True,null=False,blank=False)
     #AccountTypeID=models.BigIntegerField(null=False,blank=False)
     AccountType=models.CharField(null=False,blank=False,choices=(('Basic','Basic'),('Premium','Premium')))
+    CustomerID=models.ManyToManyField(Customers)
+
 
     SortCode=models.CharField(max_length=8,null=False,blank=False) #requires validation: CHECK (SortCode LIKE '[0-9][0-9]-[0-9][0-9]-[0-9][0-9]')
 
@@ -27,4 +31,4 @@ class Accounts(models.Model):
 
 
     def __str__(self):
-        return self.AccountID
+        return str(self.AccountID)

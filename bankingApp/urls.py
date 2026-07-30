@@ -24,6 +24,6 @@ urlpatterns = [
     #path("customers/", include("customers.urls")),
     #path("cards/", include("cards.urls")),
     #path("transactions/", include("transactions.urls")),
-    path("api/", include("api.urls")),
+    path("api/v1/", include("api.urls")),
     
 ]

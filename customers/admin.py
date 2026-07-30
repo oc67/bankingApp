@@ -10,14 +10,75 @@ class CustomUserAdmin(UserAdmin):
     form=CustomUserChangeForm
     model=Customers
     list_display=[
-        "email",
-        "username",
-  
-        "age",
-        "is_staff",
+        "CustomerID",
+        #"username",  
+        #"email",
+        "FirstName",
+        "MiddleName",
+        "LastName",
+        "NInumber",
+        "Birthday",
+        "Nationality",
+        "CountryOfResidence",
+        "Municipality",
+        "StreetName",
+        "StreetNumber",
+        "Postcode",
+        "AccountStatus",
+        "CurrentSubscription",
+        "JoiningDate",
+        "EmploymentStatus",
+        "IncomeBand",
+        "Industry",
+        "ExperianCreditRating",
+        "RiskCategory"
     ]
-    fieldsets=UserAdmin.fieldsets+((None, {"fields":("age",)}),)
-    add_fieldsets=UserAdmin.add_fieldsets+((None, {"fields":("age",)}),)
+    fieldsets=UserAdmin.fieldsets+((None, {"fields":( 
+           #"CustomerID",
+           # "username",  
+            #"email",
+            "FirstName",
+            "MiddleName",
+            "LastName",
+            "NInumber",
+            "Birthday",
+            "Nationality",
+            "CountryOfResidence",
+            "Municipality",
+            "StreetName",
+            "StreetNumber",
+            "Postcode",
+            "AccountStatus",
+            "CurrentSubscription",
+            "JoiningDate",
+            "EmploymentStatus",
+            "IncomeBand",
+            "Industry",
+            "ExperianCreditRating",
+            "RiskCategory",)}),)
+    add_fieldsets=UserAdmin.add_fieldsets+((None, {"fields":(
+            #"CustomerID",
+            "username",  
+            "email",
+            "FirstName",
+            "MiddleName",
+            "LastName",
+            "NInumber",
+            "Birthday",
+            "Nationality",
+            "CountryOfResidence",
+            "Municipality",
+            "StreetName",
+            "StreetNumber",
+            "Postcode",
+            "AccountStatus",
+            "CurrentSubscription",
+            "JoiningDate",
+            "EmploymentStatus",
+            "IncomeBand",
+            "Industry",
+            "ExperianCreditRating",
+            "RiskCategory",)}),)
 
 
 admin.site.register(Customers, CustomUserAdmin)

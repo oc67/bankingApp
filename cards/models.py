@@ -1,15 +1,17 @@
 from django.db import models
+from customers.models import Customers
+from accounts.models import Accounts
 
 
 # Create your models here.
 
 class Cards(models.Model):
-    CardID=models.BigIntegerField(primary_key=True,null=False,blank=False)
+    CardID=models.AutoField(primary_key=True,null=False,blank=False)
     #CardTypeID=models.BigIntegerField(null=False,blank=False)
     CardType=models.CharField(null=False,blank=False,choices=(('Credit','Credit'),('Debit','Debit')))
 
-    AccountID=models.BigIntegerField(null=False,blank=False)
-    CustomerID=models.BigIntegerField(null=False,blank=False)
+    AccountID=models.ForeignKey(Accounts,null=False,blank=False,on_delete=models.CASCADE)
+    CustomerID=models.ForeignKey(Customers,null=False,blank=False,on_delete=models.CASCADE)
 
 
     BespokeCashbackRatePayable=models.DecimalField(decimal_places=5,max_digits=6,
@@ -23,4 +25,4 @@ class Cards(models.Model):
 
 
     def __str__(self):
-        return self.CardID
+        return str(self.CardID)
