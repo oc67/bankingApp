@@ -1,13 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+#no longer supported in newer Django versions:
+#from .forms import CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth.forms import AdminUserCreationForm, UserChangeForm
+
 from .models import Customers
 # Register your models here.
 
 class CustomUserAdmin(UserAdmin):
-    add_form=CustomUserCreationForm
-    form=CustomUserChangeForm
+    add_form=AdminUserCreationForm
+    form=UserChangeForm
     model=Customers
     list_display=[
         "CustomerID",
@@ -60,6 +63,8 @@ class CustomUserAdmin(UserAdmin):
             #"CustomerID",
             "username",  
             "email",
+            "password1",
+            "password2",
             "FirstName",
             "MiddleName",
             "LastName",
