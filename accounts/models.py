@@ -9,7 +9,7 @@ from customers.models import Customers
 class Accounts(models.Model):
     AccountID=models.AutoField(primary_key=True,null=False,blank=False)
     #AccountTypeID=models.BigIntegerField(null=False,blank=False)
-    AccountType=models.CharField(null=False,blank=False,choices=(('Basic','Basic'),('Premium','Premium')))
+    AccountType=models.CharField(null=False,blank=False,choices=(('Basic','Basic'),('Premium','Premium')),max_length=10)
     CustomerID=models.ManyToManyField(Customers)
 
 

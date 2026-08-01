@@ -12,24 +12,29 @@ class Customers(AbstractUser):
     #AccountID=models.ForeignKey(Accounts,null=True,blank=True,on_delete=models.CASCADE)
 
 
-    FirstName=models.CharField(max_length=100,null=True,blank=True)
+    FirstName=models.CharField(max_length=100,null=False,blank=False)
     MiddleName=models.CharField(max_length=100,null=True,blank=True)
-    LastName=models.CharField(max_length=100,null=True,blank=True)
-    NInumber=models.CharField(max_length=8,null=True,blank=True)
+    LastName=models.CharField(max_length=100,null=False,blank=False)
+    NInumber=models.CharField(max_length=8,null=False,blank=False)
     Birthday=models.DateField(null=True,blank=True)
-    Nationality=models.CharField(max_length=100,null=True,blank=True)
-    CountryOfResidence=models.CharField(max_length=100,null=True,blank=True)
-    Municipality=models.CharField(max_length=100,null=True,blank=True)
-    StreetName=models.CharField(max_length=255,null=True,blank=True)
+    Nationality=models.CharField(max_length=100,null=False,blank=False)
+    CountryOfResidence=models.CharField(max_length=100,null=False,blank=False)
+    Municipality=models.CharField(max_length=100,null=False,blank=False)
+    StreetName=models.CharField(max_length=255,null=False,blank=False)
     StreetNumber=models.IntegerField(null=True,blank=True)
-    Postcode=models.CharField(max_length=50,null=True,blank=True)
-    AccountStatus=models.CharField(max_length=20,null=True,blank=True)
-    CurrentSubscription=models.CharField(max_length=20,null=True,blank=True)
+    Postcode=models.CharField(max_length=50,null=False,blank=False)
+    AccountStatus=models.CharField(max_length=20,null=False,blank=False,choices=(
+            ('Active','Active'),('Frozen','Frozen'),('Under consideration','Under consideration'),
+                                                        ('Inactive','Inactive'),('Closed','Closed')))
+        
+    CurrentSubscription=models.CharField(max_length=20,null=False,blank=False)
+    #choices=(
+         #   ('Basic','Basic'),('Premium','Premium')
     JoiningDate=models.DateField(null=True,blank=True)
     EmploymentStatus = models.CharField(
         max_length=20,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         choices=(
         ('Self-employed', 'Self-employed'),
         ('Full-time', 'Full-time'),
@@ -43,8 +48,8 @@ class Customers(AbstractUser):
 
     IncomeBand = models.CharField(
         max_length=20,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         choices=(
         ('£0-£10,000', '£0-£10,000'),
         ('£10,001-£30,000', '£10,001-£30,000'),
@@ -56,8 +61,8 @@ class Customers(AbstractUser):
 
     Industry = models.CharField(
         max_length=50,
-        null=True,
-        blank=True,
+        null=False,
+        blank=False,
         choices=(
         ('Agriculture', 'Agriculture'),
         ('Healthcare', 'Healthcare'),

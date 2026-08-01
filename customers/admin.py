@@ -61,10 +61,7 @@ class CustomUserAdmin(UserAdmin):
             "RiskCategory",)}),)
     add_fieldsets=UserAdmin.add_fieldsets+((None, {"fields":(
             #"CustomerID",
-            "username",  
-            "email",
-            "password1",
-            "password2",
+    
             "FirstName",
             "MiddleName",
             "LastName",
